@@ -1,6 +1,6 @@
 /*
-RunningSum ve PivotIndex sorulari,
-array ve prefix sum ile ilgilidir.
+RunningSum ve PivotIndex sorulari, array ve prefix sum
+ile ilgilidir.
 
 Prefix sum:
 https://www.cs.cmu.edu/~guyb/papers/Ble93.pdf
@@ -26,14 +26,21 @@ https://www.baeldung.com/java-two-pointer-technique
  */
 
 /*
-MergeTwoSortedLists sorusu, Linked List
+MergeTwoSortedLists ve ReverseLinkedList sorulari, Linked List ve Recursion
 ile ilgilidir.
 
 Linked List:
+http://cagataykiziltan.net/veri-yapilari-data-structures/1-linked-list-bagli-listeler/
+https://en.wikipedia.org/wiki/Linked_list
+https://www.youtube.com/watch?v=DuBm2tWQHJ0&t=940s
 
+Recursion:
+https://en.wikipedia.org/wiki/Recursion_(computer_science)
  */
 
 fun main() {
+
+    val necessaryFunctions = NecessaryFunctions()
 
 //    println(RomanToInteger().romanToInt("MCMXCIV"))
 //    println(RomanToInteger().romanToIntFromAnotherLeetCodeUser("MCMXCIV"))
@@ -97,8 +104,84 @@ fun main() {
 //    println(IsSubsequence().isSubsequenceFromAnotherLeetCodeUser("axc", "ahbgdc"))
 //    println(IsSubsequence().secondIsSubsequenceFromAnotherLeetCodeUser("axc", "ahbgdc"))
 
+//    println("---------------------------------------------------------------------------------------------------------")
+
+//    val firstListNode = ListNode(1)
+//    firstListNode.next = ListNode(3)
+//    firstListNode.next?.next = ListNode(5)
+////    necessaryFunctions.linkedListPrinter(firstListNode)
+//    println(necessaryFunctions.linkedListToArrayConverter(firstListNode).contentToString())
+//
+//    val secondListNode = ListNode(2)
+//    secondListNode.next = ListNode(4)
+//    secondListNode.next?.next = ListNode(6)
+////    necessaryFunctions.linkedListPrinter(secondListNode)
+//    println(necessaryFunctions.linkedListToArrayConverter(secondListNode).contentToString())
+//
+//    val resultListNodeOfMergeTwoSortedLists = MergeTwoSortedLists().mergeTwoLists(
+//        firstListNode,
+//        secondListNode
+//    ) // TODO (Ahmet) ---> Bu satirdaki "resultListNodeOfMergeTwoSortedLists" hesabiyla berbar firstListNode ve secondListNode degerleri de degisiyor. Bu durumu bu satirin altindaki ve ustundeki firstListNode ve secondListNode print islemlerinin farkli sonuc vermesinden gozlemleyebilirsin. Bu durumun nedenini tam anlamadım, arastiracagim.
+//
+////    necessaryFunctions.linkedListPrinter(firstListNode)
+////    necessaryFunctions.linkedListPrinter(secondListNode)
+////    necessaryFunctions.linkedListPrinter(resultListNodeOfMergeTwoSortedLists)
+//    println(necessaryFunctions.linkedListToArrayConverter(resultListNodeOfMergeTwoSortedLists).contentToString())
+
     println("---------------------------------------------------------------------------------------------------------")
 
-    println(MergeTwoSortedLists().mergeTwoListsFromAnotherLeetCodeUser(ListNode(1), ListNode(2)))
+//    val listNodeForReverseLinkedList = ListNode(1)
+//    listNodeForReverseLinkedList.next = ListNode(2)
+//    listNodeForReverseLinkedList.next?.next = ListNode(3)
+//    listNodeForReverseLinkedList.next?.next?.next = ListNode(4)
+//    listNodeForReverseLinkedList.next?.next?.next?.next = ListNode(5)
+//
+//    val resultListNodeOfReverseLinkedList = ReverseLinkedList().reverseList(listNodeForReverseLinkedList)
+//
+//    println(necessaryFunctions.linkedListToArrayConverter(listNodeForReverseLinkedList).contentToString())
+//    println(
+//        necessaryFunctions.linkedListToArrayConverter(resultListNodeOfReverseLinkedList).contentToString()
+//    ) // TODO (Ahmet) ---> Bu TODO ile yukardaki ayni konuya deginiyor. Burda da fonksiyon girdisinin degeri, fonksiyona girdikten sonra degisiyor, ayni kalmiyor. Halbuki girdi zaten val ile tanimlanmis bir deger, bu konuyu arastiracagim.
 
+    println("---------------------------------------------------------------------------------------------------------")
+
+
+}
+
+class ListNode(var `val`: Int) {
+    var next: ListNode? = null
+}
+
+class NecessaryFunctions {
+    fun linkedListPrinter(listNode: ListNode?) {
+        println("***")
+        var listNodeForFunction = listNode
+        while (listNodeForFunction != null) {
+            println(listNodeForFunction.`val`)
+            listNodeForFunction = listNodeForFunction.next
+        }
+        println("***")
+    }
+
+    fun linkedListToArrayConverter(listNode: ListNode?): IntArray {
+        val resultArray: IntArray = IntArray(linkedListLengthFinder(listNode))
+        var index: Int = 0
+        var listNodeForFunction = listNode
+        while (listNodeForFunction != null) {
+            resultArray[index] = listNodeForFunction.`val`
+            listNodeForFunction = listNodeForFunction.next
+            index += 1
+        }
+        return resultArray
+    }
+
+    fun linkedListLengthFinder(listNode: ListNode?): Int {
+        var index: Int = 0
+        var listNodeForFunction = listNode
+        while (listNodeForFunction != null) {
+            listNodeForFunction = listNodeForFunction.next
+            index += 1
+        }
+        return (index)
+    }
 }

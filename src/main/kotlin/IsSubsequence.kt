@@ -1,6 +1,9 @@
 // https://leetcode.com/problems/is-subsequence/?envType=study-plan&id=level-1
 
-class IsSubsequence { // TODO (Ahmet) ---> Buradaki cozumleri tekrar inceleyecegim ve düzenleyeceğim.
+class IsSubsequence { // TODO (Ahmet) ---> Buradaki cozumleri tekrar inceleyecegim ve duzenleyeceğim.
+
+    // I learned and understood this from: https://leetcode.com/masoomyf/
+
     fun isSubsequence(s: String, t: String): Boolean {
 
         if (s == t) {
@@ -28,7 +31,7 @@ class IsSubsequence { // TODO (Ahmet) ---> Buradaki cozumleri tekrar inceleyeceg
         return false
     }
 
-    // ---------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 
     fun isSubsequenceFromAnotherLeetCodeUser(s: String, t: String): Boolean {
         var i = 0

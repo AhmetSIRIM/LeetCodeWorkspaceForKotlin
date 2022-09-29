@@ -1,6 +1,9 @@
 // https://leetcode.com/problems/isomorphic-strings/?envType=study-plan&id=level-1
 
 class IsomorphicStrings {
+
+    // I learned and understood this from: https://leetcode.com/kotlinvim/
+
     fun isIsomorphic(s: String, t: String): Boolean {
         val sourceToTarget = HashMap<Char, Char>()
         val targetToSource = HashMap<Char, Char>()
